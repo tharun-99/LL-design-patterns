@@ -4,8 +4,6 @@ import DesignPatterns.DecoratorPattern.Beverage.Beverage;
 
 public class Whip extends CondimentDecorator{
 
-    public Beverage beverage;
-
     public Whip(Beverage beverage) {
         this.beverage = beverage;
     }
