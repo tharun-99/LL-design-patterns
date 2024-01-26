@@ -1,0 +1,50 @@
+@startuml
+class DesignPatterns.FactoryMethodPattern.Pizza.ChicagoStyleCheesePizza {
++ void bake()
++ void cut()
++ void box()
+}
+abstract class DesignPatterns.FactoryMethodPattern.PizzaStore.PizzaStore {
++ Pizza orderPizza(String)
+# {abstract}Pizza createPizza(String)
+}
+class DesignPatterns.FactoryMethodPattern.Pizza.NYStyleVeggiePizza {
++ void box()
+}
+class DesignPatterns.FactoryMethodPattern.Pizza.ChicagoStyleVeggiePizza {
++ void bake()
++ void cut()
++ void box()
+}
+class DesignPatterns.FactoryMethodPattern.Main.PizzaTestDrive {
++ {static} void main(String[])
+}
+class DesignPatterns.FactoryMethodPattern.Pizza.NYStyleCheesePizza {
++ void box()
+}
+class DesignPatterns.FactoryMethodPattern.PizzaStore.ChicagoPizzaStore {
+# Pizza createPizza(String)
+}
+class DesignPatterns.FactoryMethodPattern.PizzaStore.NYPizzaStore {
+# Pizza createPizza(String)
+}
+abstract class DesignPatterns.FactoryMethodPattern.Pizza.Pizza {
+~ String name
+~ String dough
+~ String sauce
+~ ArrayList<String> toppings
++ void prepare()
++ void bake()
++ void cut()
++ void box()
++ String getName()
+}
+
+
+DesignPatterns.FactoryMethodPattern.Pizza.Pizza <|-- DesignPatterns.FactoryMethodPattern.Pizza.ChicagoStyleCheesePizza
+DesignPatterns.FactoryMethodPattern.Pizza.Pizza <|-- DesignPatterns.FactoryMethodPattern.Pizza.NYStyleVeggiePizza
+DesignPatterns.FactoryMethodPattern.Pizza.Pizza <|-- DesignPatterns.FactoryMethodPattern.Pizza.ChicagoStyleVeggiePizza
+DesignPatterns.FactoryMethodPattern.Pizza.Pizza <|-- DesignPatterns.FactoryMethodPattern.Pizza.NYStyleCheesePizza
+DesignPatterns.FactoryMethodPattern.PizzaStore.PizzaStore <|-- DesignPatterns.FactoryMethodPattern.PizzaStore.ChicagoPizzaStore
+DesignPatterns.FactoryMethodPattern.PizzaStore.PizzaStore <|-- DesignPatterns.FactoryMethodPattern.PizzaStore.NYPizzaStore
+@enduml

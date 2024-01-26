@@ -1,0 +1,53 @@
+@startuml
+class DesignPatterns.DecoratorPattern.Decorator.Milk {
++ String getDescription()
++ double cost()
+}
+class DesignPatterns.DecoratorPattern.Decorator.Soy {
++ String getDescription()
++ double cost()
+}
+abstract class DesignPatterns.DecoratorPattern.Beverage.Beverage {
++ String description
++ String getDescription()
++ {abstract}double cost()
+}
+abstract class DesignPatterns.DecoratorPattern.Decorator.CondimentDecorator {
++ Beverage beverage
++ {abstract}String getDescription()
+}
+class DesignPatterns.DecoratorPattern.Decorator.Whip {
++ String getDescription()
++ double cost()
+}
+class DesignPatterns.DecoratorPattern.Beverage.DarkRoast {
++ double cost()
+}
+class DesignPatterns.DecoratorPattern.Beverage.Espresso {
++ double cost()
+}
+class DesignPatterns.DecoratorPattern.Main.StarBuzz {
++ {static} void main(String[])
+}
+class DesignPatterns.DecoratorPattern.Decorator.Mocha {
++ String getDescription()
++ double cost()
+}
+class DesignPatterns.DecoratorPattern.Beverage.DeCaf {
++ double cost()
+}
+class DesignPatterns.DecoratorPattern.Beverage.HouseBlend {
++ double cost()
+}
+
+
+DesignPatterns.DecoratorPattern.Decorator.CondimentDecorator <|-- DesignPatterns.DecoratorPattern.Decorator.Milk
+DesignPatterns.DecoratorPattern.Decorator.CondimentDecorator <|-- DesignPatterns.DecoratorPattern.Decorator.Soy
+DesignPatterns.DecoratorPattern.Beverage.Beverage <|-- DesignPatterns.DecoratorPattern.Decorator.CondimentDecorator
+DesignPatterns.DecoratorPattern.Decorator.CondimentDecorator <|-- DesignPatterns.DecoratorPattern.Decorator.Whip
+DesignPatterns.DecoratorPattern.Beverage.Beverage <|-- DesignPatterns.DecoratorPattern.Beverage.DarkRoast
+DesignPatterns.DecoratorPattern.Beverage.Beverage <|-- DesignPatterns.DecoratorPattern.Beverage.Espresso
+DesignPatterns.DecoratorPattern.Decorator.CondimentDecorator <|-- DesignPatterns.DecoratorPattern.Decorator.Mocha
+DesignPatterns.DecoratorPattern.Beverage.Beverage <|-- DesignPatterns.DecoratorPattern.Beverage.DeCaf
+DesignPatterns.DecoratorPattern.Beverage.Beverage <|-- DesignPatterns.DecoratorPattern.Beverage.HouseBlend
+@enduml

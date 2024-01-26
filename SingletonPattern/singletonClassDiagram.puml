@@ -1,0 +1,9 @@
+@startuml
+class DesignPatterns.SingletonPattern.Singleton.Singleton {
+- {static} Singleton instance
++ {static} Singleton getInstance()
+}
+class DesignPatterns.SingletonPattern.Main.Main {
++ {static} void main(String[])
+}
+@enduml

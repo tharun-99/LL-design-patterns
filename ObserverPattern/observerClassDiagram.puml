@@ -1,0 +1,48 @@
+@startuml
+interface DesignPatterns.ObserverPattern.DisplayElement.DisplayElement {
++ void display()
+}
+class DesignPatterns.ObserverPattern.Main.WeatherStation {
++ {static} void main(String[])
+}
+class DesignPatterns.ObserverPattern.Subject.WeatherData {
+- ArrayList<Observer> observersList
+- float temperature
+- float humidity
+- float pressure
++ void registerObserver(Observer)
++ void removeObserver(Observer)
++ void notifyObservers()
++ void measurementsChanged()
++ void setMeasurements(float,float,float)
+}
+interface DesignPatterns.ObserverPattern.Observer.Observer {
++ void update(float,float,float)
+}
+class DesignPatterns.ObserverPattern.Observer.CurrentConditionsDisplay {
+- float temperature
+- float humidity
+- Subject weatherData
++ void update(float,float,float)
++ void display()
+}
+class DesignPatterns.ObserverPattern.Observer.StatisticsDisplay {
+- float minTemperature
+- float maxTemperature
+- Subject weatherData
++ void update(float,float,float)
++ void display()
+}
+interface DesignPatterns.ObserverPattern.Subject.Subject {
++ void registerObserver(Observer)
++ void removeObserver(Observer)
++ void notifyObservers()
+}
+
+
+DesignPatterns.ObserverPattern.Subject.Subject <|.. DesignPatterns.ObserverPattern.Subject.WeatherData
+DesignPatterns.ObserverPattern.Observer.Observer <|.. DesignPatterns.ObserverPattern.Observer.CurrentConditionsDisplay
+DesignPatterns.ObserverPattern.DisplayElement.DisplayElement <|.. DesignPatterns.ObserverPattern.Observer.CurrentConditionsDisplay
+DesignPatterns.ObserverPattern.Observer.Observer <|.. DesignPatterns.ObserverPattern.Observer.StatisticsDisplay
+DesignPatterns.ObserverPattern.DisplayElement.DisplayElement <|.. DesignPatterns.ObserverPattern.Observer.StatisticsDisplay
+@enduml

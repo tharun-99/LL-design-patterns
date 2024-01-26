@@ -1,0 +1,55 @@
+@startuml
+class DesignPatterns.StrategyPattern.QuackBehaviors.MuteQuack {
++ void quack()
+}
+class DesignPatterns.StrategyPattern.Main.MiniDuckSimulator {
++ {static} void main(String[])
+}
+class DesignPatterns.StrategyPattern.Ducks.MallardDuck {
++ void display()
+}
+class DesignPatterns.StrategyPattern.QuackBehaviors.Squeak {
++ void quack()
+}
+class DesignPatterns.StrategyPattern.FlyBehaviors.FlyNoWay {
++ void fly()
+}
+class DesignPatterns.StrategyPattern.FlyBehaviors.FlyRocketPowered {
++ void fly()
+}
+interface DesignPatterns.StrategyPattern.FlyBehaviors.FlyBehavior {
++ void fly()
+}
+class DesignPatterns.StrategyPattern.QuackBehaviors.Quack {
++ void quack()
+}
+interface DesignPatterns.StrategyPattern.QuackBehaviors.QuackBehavior {
++ void quack()
+}
+class DesignPatterns.StrategyPattern.Ducks.ModelDuck {
++ void display()
+}
+class DesignPatterns.StrategyPattern.FlyBehaviors.FlyWithWings {
++ void fly()
+}
+abstract class DesignPatterns.StrategyPattern.Ducks.Duck {
+~ FlyBehavior flyBehavior
+~ QuackBehavior quackBehavior
++ {abstract}void display()
++ void performFly()
++ void performQuack()
++ void setFlyBehavior(FlyBehavior)
++ void setQuackBehavior(QuackBehavior)
++ void swim()
+}
+
+
+DesignPatterns.StrategyPattern.QuackBehaviors.QuackBehavior <|.. DesignPatterns.StrategyPattern.QuackBehaviors.MuteQuack
+DesignPatterns.StrategyPattern.Ducks.Duck <|-- DesignPatterns.StrategyPattern.Ducks.MallardDuck
+DesignPatterns.StrategyPattern.QuackBehaviors.QuackBehavior <|.. DesignPatterns.StrategyPattern.QuackBehaviors.Squeak
+DesignPatterns.StrategyPattern.FlyBehaviors.FlyBehavior <|.. DesignPatterns.StrategyPattern.FlyBehaviors.FlyNoWay
+DesignPatterns.StrategyPattern.FlyBehaviors.FlyBehavior <|.. DesignPatterns.StrategyPattern.FlyBehaviors.FlyRocketPowered
+DesignPatterns.StrategyPattern.QuackBehaviors.QuackBehavior <|.. DesignPatterns.StrategyPattern.QuackBehaviors.Quack
+DesignPatterns.StrategyPattern.Ducks.Duck <|-- DesignPatterns.StrategyPattern.Ducks.ModelDuck
+DesignPatterns.StrategyPattern.FlyBehaviors.FlyBehavior <|.. DesignPatterns.StrategyPattern.FlyBehaviors.FlyWithWings
+@enduml
