@@ -1,0 +1,132 @@
+@startuml
+class DesignPatterns.CommandPattern.Command.LightCommands.LightOnCommand {
+~ Light light
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.GenericCommands.MacroCommand {
+~ Command[] commands
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Appliances.Light {
+- String name
++ void on()
++ void off()
+}
+class DesignPatterns.CommandPattern.Command.GenericCommands.NoCommand {
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.GarageDoorCommands.GarageDoorOpenCommand {
+~ GarageDoor garageDoor
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Main.RemoteLoader {
++ {static} void main(String[])
+}
+class DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanHighSpeedCommand {
+~ int prevSpeed
+~ CeilingFan ceilingFan
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanLowSpeedCommand {
+~ int prevSpeed
+~ CeilingFan ceilingFan
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Appliances.GarageDoor {
+- String name
++ void up()
++ void down()
++ void stop()
++ void lightOn()
++ void lightOff()
+}
+class DesignPatterns.CommandPattern.Command.StereoCommands.StereoOnWithCdCommand {
+~ Stereo stereo
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.RemoteControl.RemoteControl {
+~ Command[] onCommands
+~ Command[] offCommands
+~ Command undo
++ void setCommand(int,Command,Command)
++ void onButtonWasPressed(int)
++ void offButtonWasPressed(int)
++ void undoButtonWasPressed()
++ String toString()
+}
+class DesignPatterns.CommandPattern.Command.StereoCommands.StereoOffCommand {
+~ Stereo stereo
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanMediumSpeedCommand {
+~ int prevSpeed
+~ CeilingFan ceilingFan
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.LightCommands.LightOffCommand {
+~ Light light
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Appliances.Stereo {
+- String name
+~ int volume
++ void on()
++ void off()
++ void setCD()
++ void setDVD()
++ void setVolume(int)
++ void setRadio()
+}
+interface DesignPatterns.CommandPattern.Command.Command {
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanOffCommand {
+~ int prevSpeed
+~ CeilingFan ceilingFan
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Command.GarageDoorCommands.GarageDoorCloseCommand {
+~ GarageDoor garageDoor
++ void execute()
++ void undo()
+}
+class DesignPatterns.CommandPattern.Appliances.CeilingFan {
++ {static} int OFF
++ {static} int LOW
++ {static} int MEDIUM
++ {static} int HIGH
++ int speed
++ String name
++ void off()
++ void low()
++ void medium()
++ void high()
++ int getSpeed()
+}
+
+
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.LightCommands.LightOnCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.GenericCommands.MacroCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.GenericCommands.NoCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.GarageDoorCommands.GarageDoorOpenCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanHighSpeedCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanLowSpeedCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.StereoCommands.StereoOnWithCdCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.StereoCommands.StereoOffCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanMediumSpeedCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.LightCommands.LightOffCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.CeilingFanCommands.CeilingFanOffCommand
+DesignPatterns.CommandPattern.Command.Command <|.. DesignPatterns.CommandPattern.Command.GarageDoorCommands.GarageDoorCloseCommand
+@enduml
