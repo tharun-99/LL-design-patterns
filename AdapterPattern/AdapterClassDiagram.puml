@@ -1,0 +1,32 @@
+@startuml
+interface DesignPatterns.AdapterPattern.Duck.Duck {
+~ void quack()
+~ void fly()
+}
+class DesignPatterns.AdapterPattern.Adapter.TurkeyAdapter {
+~ Turkey turkey
++ void quack()
++ void fly()
+}
+class DesignPatterns.AdapterPattern.Turkey.WildTurkey {
++ void gobble()
++ void fly()
+}
+interface DesignPatterns.AdapterPattern.Turkey.Turkey {
+~ void gobble()
+~ void fly()
+}
+class DesignPatterns.AdapterPattern.Driver.AdapterDriver {
++ {static} void main(String[])
+~ {static} void testDuck(Duck)
+}
+class DesignPatterns.AdapterPattern.Duck.MallardDuck {
++ void quack()
++ void fly()
+}
+
+
+DesignPatterns.AdapterPattern.Duck.Duck <|.. DesignPatterns.AdapterPattern.Adapter.TurkeyAdapter
+DesignPatterns.AdapterPattern.Turkey.Turkey <|.. DesignPatterns.AdapterPattern.Turkey.WildTurkey
+DesignPatterns.AdapterPattern.Duck.Duck <|.. DesignPatterns.AdapterPattern.Duck.MallardDuck
+@enduml
