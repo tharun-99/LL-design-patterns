@@ -1,0 +1,50 @@
+@startuml
+class DesignPatterns.FacadePattern.HomeTheater.Popper {
++ void on()
++ void off()
++ void pop()
+}
+class DesignPatterns.FacadePattern.HomeTheater.Screen {
++ void up()
++ void down()
+}
+class DesignPatterns.FacadePattern.TestDrive.HomeTheaterTestDrive {
++ {static} void main(String[])
+}
+class DesignPatterns.FacadePattern.HomeTheater.Amplifier {
+~ DvdPlayer dvdPlayer
+~ int volume
++ void on()
++ void off()
++ void setDvd(DvdPlayer)
++ void setSurroundSound()
++ void setVolume(int)
+}
+class DesignPatterns.FacadePattern.HomeTheater.Lights {
++ void on()
++ void off()
++ void dim(int)
+}
+class DesignPatterns.FacadePattern.HomeTheaterFacade.HomeTheaterFacade {
+~ Amplifier amp
+~ DvdPlayer dvd
+~ Projector projector
+~ Lights lights
+~ Screen screen
+~ Popper popper
++ void watchMovie(String)
++ void endMovie()
+}
+class DesignPatterns.FacadePattern.HomeTheater.DvdPlayer {
++ void on()
++ void off()
++ void play(String)
++ void stop()
++ void eject()
+}
+class DesignPatterns.FacadePattern.HomeTheater.Projector {
++ void on()
++ void off()
++ void wideScreenMode()
+}
+@enduml
