@@ -1,0 +1,49 @@
+@startuml
+class DesignPatterns.TemplateMethodPattern.Driver.CaffeineDriver {
++ {static} void main(String[])
+}
+class DesignPatterns.TemplateMethodPattern.Driver.CaffeineWithHookDriver {
++ {static} void main(String[])
+}
+class DesignPatterns.TemplateMethodPattern.Concretes.TeaWithHook {
++ void brew()
++ void addCondiments()
++ boolean customerWantsCondiments()
+- String getUserInput()
+}
+class DesignPatterns.TemplateMethodPattern.Concretes.CoffeeWithHook {
++ void brew()
++ void addCondiments()
++ boolean customerWantsCondiments()
+- String getUserInput()
+}
+abstract class DesignPatterns.TemplateMethodPattern.Templates.CaffeineBeverage {
++ void prepareRecipe()
++ {abstract}void brew()
++ {abstract}void addCondiments()
+~ void boilWater()
+~ void pourInCup()
+}
+abstract class DesignPatterns.TemplateMethodPattern.Templates.CaffeineBeverageWithHook {
++ void prepareRecipe()
++ {abstract}void brew()
++ {abstract}void addCondiments()
+~ void boilWater()
+~ void pourInCup()
++ boolean customerWantsCondiments()
+}
+class DesignPatterns.TemplateMethodPattern.Concretes.Coffee {
++ void brew()
++ void addCondiments()
+}
+class DesignPatterns.TemplateMethodPattern.Concretes.Tea {
++ void brew()
++ void addCondiments()
+}
+
+
+DesignPatterns.TemplateMethodPattern.Templates.CaffeineBeverageWithHook <|-- DesignPatterns.TemplateMethodPattern.Concretes.TeaWithHook
+DesignPatterns.TemplateMethodPattern.Templates.CaffeineBeverageWithHook <|-- DesignPatterns.TemplateMethodPattern.Concretes.CoffeeWithHook
+DesignPatterns.TemplateMethodPattern.Templates.CaffeineBeverage <|-- DesignPatterns.TemplateMethodPattern.Concretes.Coffee
+DesignPatterns.TemplateMethodPattern.Templates.CaffeineBeverage <|-- DesignPatterns.TemplateMethodPattern.Concretes.Tea
+@enduml
