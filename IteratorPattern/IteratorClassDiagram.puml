@@ -1,0 +1,60 @@
+@startuml
+class DesignPatterns.IteratorPattern.Menus.PancakeHouseMenu {
+~ ArrayList<MenuItem> menuItems
++ void addItem(String,String,boolean,double)
++ Iterator<MenuItem> createIterator()
+}
+class DesignPatterns.IteratorPattern.Waitress.Waitress {
+~ Menu pancakeHouseMenu
+~ Menu dinerMenu
+~ Menu cafeMenu
+~ ArrayList<Menu> menus
++ void printMenu()
+- void printMenu(Iterator<MenuItem>)
+}
+interface DesignPatterns.IteratorPattern.Menus.Menu {
++ Iterator<MenuItem> createIterator()
+}
+interface DesignPatterns.IteratorPattern.Iterators.Iterator {
+~ boolean hasNext()
+~ Object next()
+}
+class DesignPatterns.IteratorPattern.Menus.CafeMenu {
+~ Hashtable<String,MenuItem> menuItems
++ void addItem(String,String,boolean,double)
++ Iterator<MenuItem> createIterator()
+}
+class DesignPatterns.IteratorPattern.Iterators.DinerMenuIterator {
+~ MenuItem[] list
+~ int position
++ boolean hasNext()
++ MenuItem next()
++ void remove()
+}
+class DesignPatterns.IteratorPattern.MenuItem.MenuItem {
+~ String name
+~ String description
+~ boolean vegetarian
+~ double price
++ String getName()
++ String getDescription()
++ double getPrice()
++ boolean isVegetarian()
+}
+class DesignPatterns.IteratorPattern.Menus.DinerMenu {
+~ {static} int MAX_ITEMS
+~ int numberOfItems
+~ MenuItem[] menuItems
++ void addItem(String,String,boolean,double)
++ Iterator<MenuItem> createIterator()
+}
+class DesignPatterns.IteratorPattern.TestDrive.MenuTestDrive {
++ {static} void main(String[])
+}
+
+
+DesignPatterns.IteratorPattern.Menus.Menu <|.. DesignPatterns.IteratorPattern.Menus.PancakeHouseMenu
+DesignPatterns.IteratorPattern.Menus.Menu <|.. DesignPatterns.IteratorPattern.Menus.CafeMenu
+java.util.Iterator <|.. DesignPatterns.IteratorPattern.Iterators.DinerMenuIterator
+DesignPatterns.IteratorPattern.Menus.Menu <|.. DesignPatterns.IteratorPattern.Menus.DinerMenu
+@enduml
