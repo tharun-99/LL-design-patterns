@@ -1,0 +1,62 @@
+@startuml
+class DesignPatterns.CompositePattern.MenuComponents.Menu {
+~ ArrayList<MenuComponent> menuComponents
+~ String name
+~ String description
++ void add(MenuComponent)
++ void remove(MenuComponent)
++ MenuComponent getChild(int)
++ String getName()
++ String getDescription()
++ void print()
++ Iterator<MenuComponent> createIterator()
+}
+class DesignPatterns.CompositePattern.Iterators.CompositeIterator {
+~ Stack<Iterator<MenuComponent>> stack
++ Object next()
++ boolean hasNext()
++ void remove()
+}
+abstract class DesignPatterns.CompositePattern.MenuComponents.MenuComponent {
++ void add(MenuComponent)
++ void remove(MenuComponent)
++ MenuComponent getChild(int)
++ String getName()
++ String getDescription()
++ double getPrice()
++ boolean isVegetarian()
++ void print()
++ Iterator<MenuComponent> createIterator()
+}
+class DesignPatterns.CompositePattern.Iterators.NullIterator {
++ Object next()
++ boolean hasNext()
++ void remove()
+}
+class DesignPatterns.CompositePattern.TestDrive.MenuTestDrive {
++ {static} void main(String[])
+}
+class DesignPatterns.CompositePattern.Waitress.Waitress {
+~ MenuComponent allMenus
++ void printMenu()
++ void printVegetarianMenu()
+}
+class DesignPatterns.CompositePattern.MenuComponents.MenuItem {
+~ String name
+~ String description
+~ boolean vegetarian
+~ double price
++ String getName()
++ String getDescription()
++ double getPrice()
++ boolean isVegetarian()
++ void print()
++ Iterator<MenuComponent> createIterator()
+}
+
+
+DesignPatterns.CompositePattern.MenuComponents.MenuComponent <|-- DesignPatterns.CompositePattern.MenuComponents.Menu
+DesignPatterns.CompositePattern.Iterators.Iterator <|.. DesignPatterns.CompositePattern.Iterators.CompositeIterator
+java.util.Iterator <|.. DesignPatterns.CompositePattern.Iterators.NullIterator
+DesignPatterns.CompositePattern.MenuComponents.MenuComponent <|-- DesignPatterns.CompositePattern.MenuComponents.MenuItem
+@enduml
