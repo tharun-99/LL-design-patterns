@@ -1,0 +1,75 @@
+@startuml
+class DesignPatterns.StatePattern.States.NoQuarterState {
+~ GumballMachine gumballMachine
++ void insertQuarter()
++ void ejectQuarter()
++ void turnCrank()
++ void dispense()
+}
+class DesignPatterns.StatePattern.States.SoldOutState {
+~ GumballMachine gumballMachine
++ void insertQuarter()
++ void ejectQuarter()
++ void turnCrank()
++ void dispense()
+}
+class DesignPatterns.StatePattern.States.WinnerState {
+~ GumballMachine gumballMachine
++ void insertQuarter()
++ void ejectQuarter()
++ void turnCrank()
++ void dispense()
+}
+class DesignPatterns.StatePattern.States.HasQuarterState {
+~ Random randomWinner
+~ GumballMachine gumballMachine
++ void insertQuarter()
++ void ejectQuarter()
++ void turnCrank()
++ void dispense()
+}
+class DesignPatterns.StatePattern.Context.GumballMachine {
+~ State noQuarterState
+~ State hasQuarterState
+~ State soldState
+~ State soldOutState
+~ State winnerState
+~ State state
+~ int count
++ void insertQuarter()
++ void ejectQuarter()
++ void turnCrank()
++ void releaseGumball()
++ void setState(State)
++ int getCount()
++ State getNoQuarterState()
++ State getHasQuarterState()
++ State getSoldState()
++ State getSoldOutState()
++ State getWinnerState()
++ String toString()
+}
+interface DesignPatterns.StatePattern.States.State {
+~ void insertQuarter()
+~ void ejectQuarter()
+~ void turnCrank()
+~ void dispense()
+}
+class DesignPatterns.StatePattern.TestDrive.GumballTestDrive {
++ {static} void main(String[])
+}
+class DesignPatterns.StatePattern.States.SoldState {
+~ GumballMachine gumballMachine
++ void insertQuarter()
++ void ejectQuarter()
++ void turnCrank()
++ void dispense()
+}
+
+
+DesignPatterns.StatePattern.States.State <|.. DesignPatterns.StatePattern.States.NoQuarterState
+DesignPatterns.StatePattern.States.State <|.. DesignPatterns.StatePattern.States.SoldOutState
+DesignPatterns.StatePattern.States.State <|.. DesignPatterns.StatePattern.States.WinnerState
+DesignPatterns.StatePattern.States.State <|.. DesignPatterns.StatePattern.States.HasQuarterState
+DesignPatterns.StatePattern.States.State <|.. DesignPatterns.StatePattern.States.SoldState
+@enduml
